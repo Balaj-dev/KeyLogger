@@ -1,4 +1,9 @@
 from pynput import keyboard
+from datetime import datetime
+
+
+now = datetime.now()
+print(now.strftime("%Y-%m-%d %H:%M:%S"))
 
 with open("logger_result.txt" , "w") as file:
     file.write("\n")
