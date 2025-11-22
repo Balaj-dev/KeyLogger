@@ -18,3 +18,5 @@ Its purpose is to demonstrate my programming skills, security understanding, and
   </li>
 </ul>
 <p>By using or downloading this project, you agree that it is your responsibility to comply with all applicable laws and obtain proper authorization.</p>
+
+<h1>Installation</h1>

