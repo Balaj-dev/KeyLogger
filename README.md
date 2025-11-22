@@ -24,7 +24,7 @@ Its purpose is to demonstrate my programming skills, security understanding, and
 <h2>📂 Project File Structure</h2>
 
 <pre><code>
-Python-Keylogger/
+Keylogger/
 │
 ├── main.py                 # Main keylogger script
 ├── requirements.txt        # Python dependencies
@@ -55,7 +55,7 @@ Python-Keylogger/
 <p>These steps work on Windows, macOS, and Linux:</p>
 
 <h3>1. Clone the repository</h3>
-<pre><code>git clone https://github.com/your-username/your-repo.git
+<pre><code>git clone https://github.com/Balaj-dev/KeyLogger.git
 cd your-repo</code></pre>
 
 <h3>2. Install dependencies</h3>
